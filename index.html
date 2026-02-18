@@ -3,117 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISEMUDO | Rob</title>
-    <meta name="description" content="Backend Java Developer & Music Producer.">
+    <title>ISEMUDO | System Status</title>
     <style>
-        :root {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --accent-color: #00ff41; /* Classic Terminal Green */
-            --link-hover: #ffffff;
-            --font-stack: 'Courier New', Courier, monospace;
-        }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-stack);
+            background-color: #0d0d0d;
+            color: #33ff00; /* Classic Terminal Green */
+            font-family: 'Courier New', Courier, monospace;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
-            padding: 20px;
-            line-height: 1.6;
+            overflow: hidden;
         }
 
-        .container {
+        .terminal {
+            width: 90%;
             max-width: 600px;
-            width: 100%;
         }
 
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
+        p {
+            margin: 5px 0;
+            opacity: 0; /* Hidden by default for animation */
+            animation: fadeIn 0.5s forwards;
+        }
+
+        /* Staggered animation delays */
+        p:nth-child(1) { animation-delay: 0.2s; }
+        p:nth-child(2) { animation-delay: 0.8s; }
+        p:nth-child(3) { animation-delay: 1.5s; }
+        p:nth-child(4) { animation-delay: 2.5s; color: #fff; margin-top: 20px;}
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px dashed #fff;
+        }
+
+        a:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
 
         .cursor::after {
-            content: '█';
-            animation: blink 1s step-end infinite;
-            color: var(--accent-color);
-            margin-left: 5px;
+            content: '_';
+            animation: blink 1s infinite;
         }
 
         @keyframes blink {
             50% { opacity: 0; }
         }
-
-        .subtitle {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            display: block;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .link-item {
-            display: block;
-            background: #1e1e1e;
-            padding: 15px;
-            text-decoration: none;
-            color: var(--text-color);
-            border: 1px solid #333;
-            transition: all 0.2s ease;
-        }
-
-        .link-item:hover {
-            border-color: var(--accent-color);
-            transform: translateX(5px);
-            color: var(--accent-color);
-        }
-
-        .footer {
-            margin-top: 3rem;
-            font-size: 0.8rem;
-            color: #555;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>> Isemudo<span class="cursor"></span></h1>
-        <span class="subtitle">Rob // Backend Java Dev // Music Producer</span>
-
-        <div class="links">
-            <a href="mailto:hello@isemudo.co.uk" class="link-item">
-                > Email (hello@isemudo.co.uk)
-            </a>
-            
-            <a href="https://github.com/isemudo" target="_blank" class="link-item">
-                > GitHub (Code)
-            </a>
-            
-            <a href="https://soundcloud.com/isemudo" target="_blank" class="link-item">
-                > SoundCloud (Beats)
-            </a>
-
-            <a href="https://linkedin.com/in/your-profile" target="_blank" class="link-item">
-                > LinkedIn
-            </a>
-        </div>
-
-        <div class="footer">
-            &copy; 2026 Isemudo.co.uk
-        </div>
+    <div class="terminal">
+        <p>> KERNEL: Isemudo.co.uk v1.0</p>
+        <p>> STATUS: Building infrastructure...</p>
+        <p>> MODULES: Java Backend [OK] // Audio Engine [OK]</p>
+        
+        <p>> CONTACT: <a href="mailto:hello@isemudo.co.uk">hello@isemudo.co.uk</a><span class="cursor"></span></p>
     </div>
 
 </body>
